@@ -47,24 +47,11 @@ func (line line) steps() (xStep int, yStep int) {
 }
 
 func (line line) length() (length int) {
-	lengthX := maxInt(line.x1, line.x2) - minInt(line.x1, line.x2)
-	lengthY := maxInt(line.y1, line.y2) - minInt(line.y1, line.y2)
-	length = maxInt(lengthX, lengthY)
+	lengthX := advent_helpers.MaxInt(line.x1, line.x2) - advent_helpers.MinInt(line.x1, line.x2)
+	lengthY := advent_helpers.MaxInt(line.y1, line.y2) - advent_helpers.MinInt(line.y1, line.y2)
+	length = advent_helpers.MaxInt(lengthX, lengthY)
 
 	return
-}
-
-func minInt(a int, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-func maxInt(a int, b int) int {
-	if a < b {
-		return b
-	}
-	return a
 }
 
 type PuzzleInput []line
