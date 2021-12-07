@@ -29,6 +29,7 @@ func calcCost1(crabs []int, target int) (cost int) {
 func calcCost2(crabs []int, target int) (cost int) {
 	for _, i := range crabs {
 		diff := advent_helpers.AbsInt(i - target)
+		// https://en.wikipedia.org/wiki/Triangular_number
 		cost += diff * (diff + 1) / 2
 	}
 
