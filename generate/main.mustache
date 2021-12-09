@@ -8,13 +8,6 @@ import (
 
 type PuzzleInput []string
 
-func main() {
-	inputLines := advent_helpers.ReadInput("{{ dayString }}/input.txt")
-	
-	fmt.Println("{{ dayString }} Part a: ", SolveA(inputLines))
-	fmt.Println("{{ dayString }} Part b: ", SolveB(inputLines))
-}
-
 func ProcessInput(input []string) PuzzleInput {
     return input
 }
@@ -25,4 +18,11 @@ func SolveA(input PuzzleInput) string {
 
 func SolveB(input PuzzleInput) string {
 	return "Not yet implemented"
+}
+
+func main() {
+	inputLines := advent_helpers.ReadInput("{{ dayString }}/input.txt")
+	
+	fmt.Println("{{ dayString }} Part a: ", SolveA(ProcessInput(inputLines)))
+	fmt.Println("{{ dayString }} Part b: ", SolveB(ProcessInput(inputLines)))
 }
