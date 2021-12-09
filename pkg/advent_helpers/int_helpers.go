@@ -18,3 +18,16 @@ func AbsInt(a int) int {
 	}
 	return a
 }
+
+func PowInt(a int, exp int) (result int) {
+	if exp == 0 {
+		return 1
+	}
+
+	result = a
+	for i := 2; i <= exp; i++ {
+		result *= a
+	}
+
+	return
+}
