@@ -1,16 +1,27 @@
 package main
 
 import (
+	"strings"
 	"testing"
-
-	"github.com/mattmohan/advent2021/pkg/advent_helpers"
 )
 
 func TestA(t *testing.T) {
-	file := advent_helpers.ReadInput("../input.txt")
-	inputInts := ProcessLines(file)
+	file := `00100
+11110
+10110
+10111
+10101
+01111
+00111
+11100
+10000
+11001
+00010
+01010`
+	inputs := strings.Split(file, "\n")
+	inputInts := ProcessLines(inputs)
 
-	columns := CountColumns(len(file[0]), inputInts)
+	columns := CountColumns(len(inputs[0]), inputInts)
 	expected := "198"
 	sln := SolveA(len(inputInts), columns)
 	if sln != expected {
@@ -18,10 +29,22 @@ func TestA(t *testing.T) {
 	}
 }
 func TestB(t *testing.T) {
-	file := advent_helpers.ReadInput("../input.txt")
-	inputInts := ProcessLines(file)
+	file := `00100
+	11110
+	10110
+	10111
+	10101
+	01111
+	00111
+	11100
+	10000
+	11001
+	00010
+	01010`
+	inputs := strings.Split(file, "\n")
+	inputInts := ProcessLines(inputs)
 
-	sln := SolveB(len(file[0]), inputInts)
+	sln := SolveB(len(inputs[0]), inputInts)
 	expected := "230"
 
 	if sln != expected {

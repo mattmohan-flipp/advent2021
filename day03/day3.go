@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"strconv"
+	"strings"
 
 	"github.com/mattmohan/advent2021/pkg/advent_helpers"
 )
@@ -35,19 +36,10 @@ func SolveB(bitLength int, inputInts []uint64) string {
 	return strconv.FormatUint(o2[0]*co2[0], 10)
 }
 
-func filterEmpty(lines []string) (output []string) {
-	for _, line := range lines {
-		if len(line) > 0 {
-			output = append(output, line)
-		}
-	}
-	return
-}
-
 func ProcessLines(input []string) (output []uint64) {
 	output = make([]uint64, 0, len(input))
 	for _, line := range input {
-		num, _ := strconv.ParseUint(line, 2, 64)
+		num, _ := strconv.ParseUint(strings.Fields(line)[0], 2, 64)
 		output = append(output, num)
 	}
 	return
