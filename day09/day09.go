@@ -63,7 +63,7 @@ func SolveB(input PuzzleInput) string {
 		}
 	}
 
-	fmt.Println("\n", printGrid(checked))
+	fmt.Println("\n", advent_helpers.RenderByteGrid(checked, true))
 
 	for _, i := range topRegions {
 		answer *= i
@@ -92,22 +92,4 @@ func main() {
 
 	fmt.Println("day09 Part a: ", SolveA(ProcessInput(inputLines)))
 	fmt.Println("day09 Part b: ", SolveB(ProcessInput(inputLines)))
-}
-
-func printGrid(input [][]byte) (out string) {
-	chars := "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/-*"
-	for i := range input {
-		for j := range input[i] {
-			if input[i][j] == 0 {
-				out += " "
-			} else {
-				char := chars[input[i][j]%66]
-				colour := int(input[i][j])/len(chars) + 1
-				out += fmt.Sprintf("\033[3%dm%v\033[0m", colour, string(char))
-			}
-		}
-		out += "\n "
-	}
-
-	return
 }
