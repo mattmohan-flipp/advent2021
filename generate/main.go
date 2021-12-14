@@ -81,6 +81,7 @@ func main() {
 	check(os.WriteFile(testFilename, []byte(testContents), 0644))
 
 	log.Debug().Str("contents", testContents).Str("filename", testFilename).Msg("Writing testcases")
+	check(os.Mkdir(filepath.Join(dayString, "testcases"), 0755))
 	check(os.WriteFile(filepath.Join(dayString, "testcases", "1_in_ab.txt"), []byte(""), 0644))
 	check(os.WriteFile(filepath.Join(dayString, "testcases", "1_out_a.txt"), []byte("N/A"), 0644))
 	check(os.WriteFile(filepath.Join(dayString, "testcases", "1_out_b.txt"), []byte("N/A"), 0644))
