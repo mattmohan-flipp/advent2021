@@ -4,6 +4,12 @@ import "fmt"
 
 const ConsConsoleSafeChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/-=`~*@&^%$#!(){}[];:<>,.?\\"
 
+func CheckError(e error) {
+	if e != nil {
+		panic(e)
+	}
+}
+
 func Byte2ConsoleChar(in byte) string {
 	return string(ConsConsoleSafeChars[in%byte(len(ConsConsoleSafeChars))])
 }

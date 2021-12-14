@@ -3,25 +3,28 @@ package main
 import (
     "strings"
     "testing"
+
+    ah "github.com/mattmohan/advent2021/pkg/advent_helpers"
 )
 
 func TestA(t *testing.T) {
-    testInput := ``
-    expected := "N/A"
+	testcases := ah.ReadTests("a")
+	for i, testcase := range testcases {
+		soln := SolveA(ProcessInput(testcase.In))
 
-    soln := SolveA(ProcessInput(strings.Split(testInput, "\n")))
-
-    if soln != expected {
-        t.Errorf("{{ dayString }} Part A doesn't match: %s != %s", soln, expected)
-    }
+		if soln != strings.Join(testcase.Out, "\n") {
+			t.Errorf("day13 Part A (input %d) doesn't match: %s != %s", i, soln, testcase.Out)
+		}
+	}
 }
+
 func TestB(t *testing.T) {
-    testInput := ``
-    expected := "N/A"
+	testcases := ah.ReadTests("b")
+	for i, testcase := range testcases {
+		soln := SolveB(ProcessInput(testcase.In))
 
-    soln := SolveB(ProcessInput(strings.Split(testInput, "\n")))
-
-    if soln != expected {
-        t.Errorf("{{ dayString }} Part B doesn't match: %s != %s", soln, expected)
-    }
+		if soln != strings.Join(testcase.Out, "\n") {
+			t.Errorf("day13 Part B (input %d) doesn't match: %s != %s", i, soln, testcase.Out)
+		}
+	}
 }

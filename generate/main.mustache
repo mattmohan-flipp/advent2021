@@ -3,7 +3,7 @@ package main
 import (
     "fmt"
 
-    "github.com/mattmohan/advent2021/pkg/advent_helpers"
+    ah "github.com/mattmohan/advent2021/pkg/advent_helpers"
 )
 
 type PuzzleInput []string
@@ -21,7 +21,7 @@ func SolveB(input PuzzleInput) string {
 }
 
 func main() {
-	inputLines := advent_helpers.ReadInput("{{ dayString }}/input.txt")
+	inputLines := ah.ReadInput("{{ dayString }}/input.txt")
 	
 	fmt.Println("{{ dayString }} Part a: ", SolveA(ProcessInput(inputLines)))
 	fmt.Println("{{ dayString }} Part b: ", SolveB(ProcessInput(inputLines)))

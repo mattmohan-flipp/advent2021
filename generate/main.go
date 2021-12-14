@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"path/filepath"
 	"strings"
 	"time"
 
@@ -73,11 +74,16 @@ func main() {
 
 	mainFilename := dayString + "/" + dayString + ".go"
 	log.Debug().Str("contents", mainContents).Str("filename", mainFilename).Msg("Writing file " + mainFilename)
-	os.WriteFile(mainFilename, []byte(mainContents), 0644)
+	check(os.WriteFile(mainFilename, []byte(mainContents), 0644))
 
 	testFilename := dayString + "/" + dayString + "_test.go"
 	log.Debug().Str("contents", testContents).Str("filename", testFilename).Msg("Writing file " + testFilename)
-	os.WriteFile(testFilename, []byte(testContents), 0644)
+	check(os.WriteFile(testFilename, []byte(testContents), 0644))
+
+	log.Debug().Str("contents", testContents).Str("filename", testFilename).Msg("Writing testcases")
+	check(os.WriteFile(filepath.Join(dayString, "testcases", "1_in_ab.txt"), []byte(""), 0644))
+	check(os.WriteFile(filepath.Join(dayString, "testcases", "1_out_a.txt"), []byte("N/A"), 0644))
+	check(os.WriteFile(filepath.Join(dayString, "testcases", "1_out_b.txt"), []byte("N/A"), 0644))
 
 	log.Debug().Msg("Opening file")
 	file, err := os.OpenFile(dayString+"/input.txt", os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0644)
