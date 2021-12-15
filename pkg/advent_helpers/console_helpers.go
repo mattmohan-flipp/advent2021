@@ -10,6 +10,12 @@ func CheckError(e error) {
 	}
 }
 
+const ConsoleRed = "\033[31"
+const ConsoleGreen = "\033[32"
+const ConsoleYellow = "\033[33"
+const ConsoleOrange = "\033[34"
+const ConsoleReset = "\033[0m"
+
 func Byte2ConsoleChar(in byte) string {
 	return string(ConsConsoleSafeChars[in%byte(len(ConsConsoleSafeChars))])
 }
