@@ -13,7 +13,7 @@ func TestA(t *testing.T) {
 		soln := SolveA(ProcessInput(testcase.In))
 
 		if soln != strings.Join(testcase.Out, "\n") {
-			t.Errorf("day13 Part A (input %d) doesn't match: %s != %s", i, soln, testcase.Out)
+			t.Errorf("{{daystring}} Part A (input %d) doesn't match: %s != %s", i, soln, testcase.Out)
 		}
 	}
 }
@@ -24,7 +24,7 @@ func TestB(t *testing.T) {
 		soln := SolveB(ProcessInput(testcase.In))
 
 		if soln != strings.Join(testcase.Out, "\n") {
-			t.Errorf("day13 Part B (input %d) doesn't match: %s != %s", i, soln, testcase.Out)
+			t.Errorf("{{daystring}} Part B (input %d) doesn't match: %s != %s", i, soln, testcase.Out)
 		}
 	}
 }
